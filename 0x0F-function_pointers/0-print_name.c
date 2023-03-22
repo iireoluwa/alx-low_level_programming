@@ -1,21 +1,14 @@
-#include "main.h"
+#include <stdlib.h>
+#include "function_pointers.h"
 
 /**
- * *_memset - fills memory with a constant byte
- * @s: memory area to be filled
- * @b: char to copy
- * @n: number of times to copy b
- *
- * Return: pointer to the memory area s
+ * print_name - prints a name
+ * @name: name to print
+ * @f: pointer to the printing function
  */
-char *_memset(char *s, char b, unsigned int n)
+void print_name(char *name, void (*f)(char *))
 {
-	unsigned int i;
-
-	for (i = 0; i < n; i++)
-	{
-		s[i] = b;
-	}
-
-	return (s);
+	if (!name || !f)
+		return;
+	f(name);
 }
